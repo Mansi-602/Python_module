@@ -1,0 +1,68 @@
+
+def greet_customer(name):
+    print("\nWelcome to Art Supplies Store,", name + "!")
+    print("Let's prepare your purchase bill.\n")
+
+
+def calculate_total(quantity, price):
+    total = quantity * price
+    return total
+
+
+def calculate_discount(total, discount_percentage):
+    discount = total * discount_percentage / 100
+    return discount
+
+
+def print_bill(name, item, quantity, total, discount, final_amount):
+    print("\n========== ART SUPPLIES BILL ==========")
+    print("Customer Name:", name)
+    print("Item Purchased:", item)
+    print("Quantity:", quantity)
+    print("Total Amount: $", total)
+    print("Discount: $", discount)
+    print("Final Amount: $", final_amount)
+    print("Thank you for shopping with us!")
+    print("=======================================")
+
+
+# Main Program
+customer_name = input("Enter your name: ")
+
+greet_customer(customer_name)
+
+print("Available Art Supplies:")
+print("1. Paint Brushes - $10 each")
+print("2. Sketchbooks - $15 each")
+print("3. Color Pencils - $8 each")
+print("4. Watercolors - $20 each")
+
+choice = int(input("\nEnter your item choice (1-4): "))
+
+if choice == 1:
+    item = "Paint Brushes"
+    price = 10
+elif choice == 2:
+    item = "Sketchbooks"
+    price = 15
+elif choice == 3:
+    item = "Color Pencils"
+    price = 8
+elif choice == 4:
+    item = "Watercolors"
+    price = 20
+else:
+    print("Invalid item choice!")
+    exit()
+
+quantity = int(input("Enter quantity: "))
+
+total = calculate_total(quantity, price)
+
+discount_percentage = 10
+
+discount = calculate_discount(total, discount_percentage)
+
+final_amount = total - discount
+
+print_bill(customer_name, item, quantity, total, discount, final_amount)
